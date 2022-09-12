@@ -1,6 +1,6 @@
 import './App.css'
 import 'axios'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import axios from 'axios'
 
 function App() {
@@ -26,9 +26,20 @@ function App() {
     })
   };
 
+  const getReq = () => {
+    axios.get('http://127.0.0.1:8000/').then((res) => {
+      console.log(res.data);
+      console.log(res.status);
+    })
+  }
+
+
+
   return (
     <div className="App">
       <h1> Price prediction Website</h1>
+
+      <button onClick={getReq}>get test</button>
 
       <div className='form_block'>
 
